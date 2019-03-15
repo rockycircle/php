@@ -1,0 +1,28 @@
+<div id="category-toolbar" style="padding:5px;height:auto">
+  <div style="margin-bottom:5px">
+    <a href="#" class="easyui-linkbutton" onclick="category_toolbar.add()" iconCls="icon-add-new" plain="true">添加</a>
+    <a href="#" class="easyui-linkbutton" onclick="category_toolbar.delete()" iconCls="icon-delete-new" plain="true">删除</a>
+  </div>
+
+</div>
+<table id="manager-category">
+
+</table>
+
+<!--添加表单-->
+<form id="category-add-form" class="app-form" method="post">
+    <div class="app-form-group">
+        <span>归属栏目:</span>
+        <input  id="category-pid" type="text" name="category_pid"  />
+    </div>
+    <div class="app-form-group">
+        <span>　栏目名:</span>
+        <input  type="text" name="category_title"  />
+    </div>
+    <div class="app-form-group">
+        <span>　状　态:</span>
+        <input  id="category-status" name="category_status"/>
+    </div>
+</form>
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/managerCategory.js"></script>

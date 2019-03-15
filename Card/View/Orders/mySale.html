@@ -1,0 +1,193 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>我的卖单</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="__PUBLIC__/asset/amaze/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.css">
+</head>
+<body>
+
+<div data-am-widget="tabs" class="am-tabs am-tabs-d2" style="margin: 0;">
+    <ul class="am-tabs-nav am-cf">
+        <li id="tab-0" class=""><a href="[data-tab-panel-0]">出售中</a></li>
+        <li id="tab-1" class=""><a href="[data-tab-panel-1]">已下架</a></li>
+        <li id="tab-2" class=""><a href="[data-tab-panel-2]">已出售</a></li>
+        <li id="tab-3" class=""><a href="[data-tab-panel-3]">纠纷中</a></li>
+    </ul>
+    <div class="am-tabs-bd" style="background-color: #f6f6f6">
+        <div  data-tab-panel-0 id="tab-panel-0" class="am-tab-panel " >
+            <volist name="products" id="product">
+                <if condition="$product.product_status eq 1">
+                    <div class="am-g am-g-fixed">
+                        <div class="am-u-sm-4">
+                            <img src="{$map_img[$product[product_customer_id]][category_img]}" width="100%" alt="">
+                        </div>
+                        <div class="am-u-sm-8">
+                            <p class="font-1">{$product.product_title}</p>
+                            <p class="font-1">有效期:{$product.product_expire_date}</p>
+                            <p class="font-2">售价:{$product.product_price}</p>
+                        </div>
+                        <hr style="margin-bottom: 10px;" data-am-widget="divider"  class="am-divider am-divider-default" />
+
+                    </div>
+                </if>
+            </volist>
+        </div>
+
+        <div data-tab-panel-1 id="tab-panel-1"  class="am-tab-panel">
+            <volist name="products" id="product">
+                <if condition="$product.product_status eq 2">
+                    <div class="am-g am-g-fixed">
+                        <div class="am-u-sm-4">
+                            <img src="{$map_img[$product[product_customer_id]][category_img]}" width="100%" alt="">
+                        </div>
+                        <div class="am-u-sm-8">
+                            <p class="font-1">{$product.product_title}</p>
+                            <p class="font-1">有效期:{$product.product_expire_date}</p>
+                            <p class="font-2">售价:{$product.product_price}</p>
+                        </div>
+                        <hr style="margin-bottom: 10px;" data-am-widget="divider"  class="am-divider am-divider-default" />
+
+                    </div>
+                </if>
+            </volist>
+        </div>
+        <div data-tab-panel-2 id="tab-panel-2"  class="am-tab-panel">
+            <volist name="products" id="product">
+                <if condition="$product.product_status eq 3">
+                    <div class="am-g am-g-fixed">
+                        <div class="am-u-sm-4">
+                            <img src="{$map_img[$product[product_customer_id]][category_img]}" width="100%" alt="">
+                        </div>
+                        <div class="am-u-sm-8">
+                            <p class="font-1">{$product.product_title}</p>
+                            <p class="font-1">有效期:{$product.product_expire_date}</p>
+                            <p class="font-2">售价:{$product.product_price}</p>
+                        </div>
+                        <hr style="margin-bottom: 10px;" data-am-widget="divider"  class="am-divider am-divider-default" />
+
+                    </div>
+                </if>
+            </volist>
+        </div>
+        <div data-tab-panel-3 id="tab-panel-3"  class="am-tab-panel">
+            <volist name="products" id="product">
+                <if condition="$product.product_status eq 4">
+                    <div class="am-g am-g-fixed">
+                        <div class="am-u-sm-4">
+                            <img src="{$map_img[$product[product_customer_id]][category_img]}" width="100%" alt="">
+                        </div>
+                        <div class="am-u-sm-8">
+                            <p class="font-1">{$product.product_title}</p>
+                            <p class="font-1">有效期:{$product.product_expire_date}</p>
+                            <p class="font-2">售价:{$product.product_price}</p>
+                        </div>
+                        <hr style="margin-bottom: 10px;" data-am-widget="divider"  class="am-divider am-divider-default" />
+
+                    </div>
+                </if>
+            </volist>
+        </div>
+    </div>
+</div>
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/asset/amaze/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+<script>
+
+        var r = window.location.search;
+        r = r.substring(r.indexOf("tabs")+5,r.length);
+
+        if(r==1){
+            $('#tab-panel-1').attr("class","am-tab-panel am-active");
+            $('#tab-1').attr("class","am-active");
+        }else if(r==2){
+            $('#tab-panel-2').attr("class","am-tab-panel am-active");
+            $('#tab-2').attr("class","am-active");
+        }else if(r==3){
+            $('#tab-panel-3').attr("class","am-tab-panel am-active");
+            $('#tab-3').attr("class","am-active");
+        }else{
+            $('#tab-panel-0').attr("class","am-tab-panel am-active");
+            $('#tab-0').attr("class","am-active");
+        }
+
+
+
+</script>
+</body>
+<style>
+    body{
+        background-color: #fff;
+    }
+
+    .font-1{
+        font-size: 13px;
+        color: #999999;
+        margin-bottom: 8px;
+        margin-top: 4px;
+    }
+    .font-2{
+        color: #ffb565;
+        font-size: 14px;
+        margin-bottom: 8px;
+        margin-top: 4px;
+    }
+    .font-3{
+        color: #999999;
+        font-size: 12px;
+
+    }
+    #bar{
+        background-color: #f6f6f6;height: 175px;
+    }
+    .am-u-sm-7{
+        padding-bottom: 15px;
+    }
+    .am-u-sm-4{
+        padding-top: 8px;
+    }
+
+    button{
+        float: right;
+    }
+</style>
+</html>

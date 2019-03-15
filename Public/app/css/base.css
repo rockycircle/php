@@ -1,0 +1,25 @@
+/*添加用户表单*/
+.app-form{
+    padding:5px 25px 0 25px;
+}
+.app-form .app-form-group{
+	width:100%;
+	height:30px;
+	margin-bottom:15px;
+}
+.app-form .app-form-group span{
+
+    line-height:10px;
+}
+.app-form .app-form-group input{
+	width:180px;
+	height:20px;
+}
+
+.dialog-button{
+	text-align: center;
+}
+.form-span{
+	display: inline-block;
+	width: 55px;
+}

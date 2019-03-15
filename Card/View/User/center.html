@@ -1,0 +1,269 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>个人中心</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="__PUBLIC__/asset/amaze/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.css">
+</head>
+<body>
+    <div class="am-g" id="top">
+        <div class="am-u-sm-3">
+            <img class="am-circle" src="{$customerInfo.wx_code}" width="60" height="60" />
+        </div>
+        <div class="am-u-sm-6" id="top-mid">
+            <p>姓名:{$customerInfo.customer_title}</p>
+            <p>信用分:{$customerInfo.customer_credit_grade}</p>
+        </div>
+        <div class="am-u-sm-3">我要推荐</div>
+    </div>
+
+    <div id="top-2">
+        <a id="wallet-change" href="__MODULE__/pay/viewMoney">我的钱包</a>
+        <a href="__MODULE__/Pay/viewMoney/id/{$customerInfo['customer_id']}" style="padding-right: 20px;" class="am-icon-angle-right am-fr"></a>
+    </div>
+    <ul id="top-3" class="am-avg-sm-2 am-thumbnails">
+        <li>
+            <a href="__MODULE__/Pay/viewMoney/id/{$customerInfo['customer_id']}">
+                <small>可提现账户余额</small>
+                <h1>￥{$customerInfo.customer_balance}</h1>
+            </a>
+        </li>
+        <li>
+            <a href="__MODULE__/pay/viewMoney">
+                <small>冻结账户余额</small>
+                <h1>￥{$customerInfo.customer_no_balance}</h1>
+            </a>
+        </li>
+    </ul>
+    <ul id="top-4" class="am-avg-sm-2 am-thumbnails">
+        <li class="li-change-1" style="border-bottom: 2px solid #fca861;"><p class="a-change-1" style="color: #fca861;" href="">我的卖单</p></li>
+        <li class="li-change-2"><p class="a-change-2" href="">我的买单</p></li>
+    </ul>
+    <ul id="top-5" class="am-avg-sm-4 am-thumbnails">
+        <li>
+            <span class="am-badge am-badge-warning am-round" id="angle-1" style="position: fixed">{$saleNum['1']}</span>
+            <a class="sell-href" href="__MODULE__/Orders/mySale/tabs/0">
+                <i class="am-icon-indent am-icon-lg am-center"></i>
+                <small id="text-1">出售中</small>
+            </a>
+        </li>
+        <li>
+            <span class="am-badge am-badge-warning am-round" id="angle-2" style="position: fixed">{$saleNum['2']}</span>
+            <a class="sell-href" href="__MODULE__/Orders/mySale/tabs/1" onclick="">
+                <i class="am-icon-tags am-icon-lg am-center"></i>
+                <small id="text-2">已下架</small>
+            </a>
+        </li>
+        <li>
+            <span class="am-badge am-badge-warning am-round" id="angle-3" style="position: fixed">{$saleNum['3']}</span>
+            <a class="sell-href" href="__MODULE__/Orders/mySale/tabs/2">
+                <i class="am-icon-check-square am-icon-lg am-center"></i>
+                <small id="text-3">已出售</small>
+            </a>
+        </li>
+        <li>
+            <span class="am-badge am-badge-warning am-round" id="angle-4" style="position: fixed">{$saleNum['4']}</span>
+            <a class="sell-href" href="__MODULE__/Orders/mySale/tabs/3">
+                <i class="am-icon-wrench am-icon-lg am-center"></i>
+                <small>纠纷中</small>
+            </a>
+        </li>
+    </ul>
+    <div id="top-6">
+        <p>我的成就</p>
+
+    </div>
+    <ul id="top-7" class="am-avg-sm-2 am-thumbnails">
+        <li>
+            <p class="sell">出售单数:{$customerInfo.seller_orders_num}</p>
+            <p class="sell">出售信誉:</p>
+            <p class="buy">购买单数:{$customerInfo.buy_orders_num}</p>
+            <p class="buy">购买信誉:</p>
+            <p class="buy">共花费:{$totalCost}</p>
+        </li>
+        <li style="padding-left: 20px;padding-top: 10px;">
+            <p class="sell">出售盈利:</p>
+            <p class="buy">购买节省:</p>
+            <p id="money-1" style="color: #ff8400;font-size: 26px;margin:5px 0 5px 0;">￥{$saleMoney}</p>
+            <p id="money-2" style="color: #88d1df;font-size: 26px;margin:5px 0 5px 0;" hidden="hidden">￥{$saveMoney}</p>
+        </li>
+    </ul>
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/asset/amaze/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+</body>
+<style>
+    body{
+        background-color: #f6f6f6;
+    }
+    a{
+        color: #000;
+    }
+
+    #top{
+        background: linear-gradient(to right, #fe8661 , #fad461);padding-top: 8px;
+    }
+    #top-mid{
+        color: #fff;font-size: 14px;
+    }
+    #top-2{
+        height: 45px;line-height: 45px;padding-left: 10px;
+    }
+    #top-2 a{
+        color: #000;
+    }
+    #top-2 i{
+        padding-right: 15px;
+    }
+    #top-3{
+        background-color: white;
+    }
+    #top-3 li a{
+        color: #70736e;
+    }
+    #top-3 li{
+        border:1px solid #f6f6f6;padding-left: 20px;
+    }
+    #top-3 li a h1{
+        margin: 0;color: #5bcc59;
+    }
+    #top-4{
+        line-height: 50px;height: 50px;text-align: center;
+    }
+    #top-4 li{
+        padding:0;
+    }
+    #top-4 li p{
+        margin:0;
+    }
+    #top-5{
+        background-color: white;
+    }
+    #top-5 li{
+        padding-top: 7px;
+        padding-bottom: 7px;
+    }
+    #top-5 li i{
+        padding-left: 24px;padding-top:5px;color: #88d1df;
+    }
+    #top-5 li small{
+        padding-left: 22px;color:#70736e;
+    }
+    #top-6{
+        height: 45px;line-height: 45px;padding-left: 10px;
+    }
+    #top-7{
+        font-size: 13px;color: #70736e;background-color: white;
+    }
+    #top-7 li{
+        padding-left: 20px;padding-top: 10px;border-right: 2px solid #f6f6f6;
+    }
+    #zero{
+        color:#88d1df;font-size: 25px;margin-top: 5px;
+    }
+    .buy{
+        display: none;
+        margin-top: 0;
+        margin-bottom: 7px;
+    }
+    .sell{
+        margin-bottom: 7px;
+    }
+</style>
+<script>
+        $('.a-change-1').click(function () {
+            $('.a-change-1').css('color','#fca861');
+            $('.li-change-1').css('border-bottom','2px solid #fca861');
+            $('.a-change-2').css('color','#000');
+            $('.li-change-2').css('border-bottom','0');
+            $('#text-1').text('出售中');
+            $('#text-2').text('已下架');
+            $('#text-3').text('已出售');
+            $('.sell-href').attr('href','__MODULE__/Orders/mySale');
+            $('.sell').show();
+            $('.buy').hide();
+            $('#money-1').show();
+            $('#money-2').hide();
+            $('#angle-1').text("{$saleNum['1']}");
+            $('#angle-2').text("{$saleNum['2']}");
+            $('#angle-3').text("{$saleNum['3']}");
+            $('#angle-4').text("{$saleNum['4']}");
+            $('#angle-1').next().attr('href','__MODULE__/mySale/tabs/0');
+            $('#angle-2').next().attr('href','__MODULE__/mySale/tabs/1');
+            $('#angle-3').next().attr('href','__MODULE__/mySale/tabs/2');
+            $('#angle-4').next().attr('href','__MODULE__/mySale/tabs/3');
+
+        });
+
+
+        $('.a-change-2').click(function () {
+            $('.a-change-2').css('color','#fca861');
+            $('.li-change-2').css('border-bottom','2px solid #fca861');
+            $('#text-1').text('待支付');
+            $('#text-2').text('待使用');
+            $('#text-3').text('已完成');
+            $('.sell-href').attr('href','__MODULE__/Orders');
+            $('.a-change-1').css('color','#000');
+            $('.li-change-1').css('border-bottom','0');
+            $('.sell').hide();
+            $('.buy').show();
+            $('#money-1').hide();
+            $('#money-2').show();
+            $('#angle-1').text("{$buyNum['1']}");
+            $('#angle-2').text("{$buyNum['2']}");
+            $('#angle-3').text("{$buyNum['3']}");
+            $('#angle-4').text("{$buyNum['4']}");
+            $('#angle-1').next().attr('href','__MODULE__/Orders/index/tabs/0');
+            $('#angle-2').next().attr('href','__MODULE__/Orders/index/tabs/1');
+            $('#angle-3').next().attr('href','__MODULE__/Orders/index/tabs/2');
+            $('#angle-4').next().attr('href','__MODULE__/Orders/index/tabs/3');
+        });
+
+
+        $('#wallet-change').mouseover(function () {
+            $('#wallet-change').css('color','#fca861');
+        });
+        $('#wallet-change').mouseout(function () {
+            $('#wallet-change').css('color','#000');
+        });
+
+</script>
+</html>

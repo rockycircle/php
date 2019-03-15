@@ -1,0 +1,59 @@
+<div class="easyui-layout" style="width:100%px;height:100%;">
+    <div data-options="region:'west',split:true" title="节点树"  id="node-tree" style="width:300px;">
+
+    </div>
+    <div data-options="region:'center',border:false">
+        <div id="node-tree-toolbar" style="padding:5px;height:auto">
+            <div style="margin-bottom:5px">
+                <a href="#" class="easyui-linkbutton" onclick="node_toolbar.add()" iconCls="icon-add-new" plain="true">添加同级节点</a>|
+                <a href="#" class="easyui-linkbutton" onclick="node_toolbar.addChird()" iconCls="icon-add-new" plain="true">添加子节点</a>|
+                <a href="#" class="easyui-linkbutton" onclick="node_toolbar.remove()" iconCls="icon-delete-new" plain="true">删除节点</a>
+            </div>
+        </div>
+        <!--添加表单-->
+        <form  id="node-form" class="app-form" method="post">
+            <div class="app-form-group">
+                <span>操作名称:</span>
+                <input  type="text"  name="name"  />
+            </div>
+            <div class="app-form-group">
+                <span>显示名称:</span>
+                <input  type="text"   name="title"  />
+            </div>
+            <div class="app-form-group">
+                <span>状　　态:</span>
+                <input type="text"  class="node-status"  name="status" />
+            </div>
+            <div class="app-form-group">
+                <span>备　　注:</span>
+                <input  type="text"   name="remark"/>
+                 <input  type="hidden"   name="id" />
+            </div>
+            <div class="app-form-group" >
+                <a id="save-node-form" href="#" class="easyui-linkbutton" data-options="iconCls:'icon-save',height:25">保存</a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<form  id="node-add-form" class="app-form" method="post">
+    <div class="app-form-group">
+        <span>操作名称:</span>
+        <input  type="text"  name="name"  />
+    </div>
+    <div class="app-form-group">
+        <span>显示名称:</span>
+        <input  type="text"   name="title"  />
+    </div>
+    <div class="app-form-group">
+        <span>状　　态:</span>
+        <input type="text"  class="node-status"  name="status" />
+    </div>
+    <div class="app-form-group">
+        <span>备　　注:</span>
+        <input  type="text"   name="remark"/>
+        <input  type="hidden"   name="pid"/>
+        <input  type="hidden"   name="level"/>
+    </div>
+</form>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/managerNode.js"></script>

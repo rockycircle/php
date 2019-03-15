@@ -1,0 +1,41 @@
+<div class="easyui-layout" style="width:100%;height:100%;"  >
+        <div data-options="region:'east',split:true" title="用户列表" style="width:300px;">
+            <div id="role-user-toolbar" style="padding:5px;height:auto">
+              <div style="margin-bottom:5px">
+                <a href="#" class="easyui-linkbutton" onclick="role_user_toolbar.save()" iconCls="icon-save" plain="true">保存</a>
+              </div>
+            </div>
+            <table id="manager-role-user" >
+            </table>
+        </div>
+        <div data-options="region:'center',border:false">
+            <div id="role-toolbar" style="padding:5px;height:auto">
+              <div style="margin-bottom:5px">
+                <a href="#" class="easyui-linkbutton" onclick="role_toolbar.add()" iconCls="icon-add-new" plain="true">添加</a>
+                <a href="#" class="easyui-linkbutton" onclick="role_toolbar.remove()" iconCls="icon-delete-new" plain="true">删除</a>
+               <!-- <a href="#" class="easyui-linkbutton" onclick="role_toolbar.addrole()" iconCls="icon-remove" plain="true">授权</a>-->
+              </div>
+            </div>
+            <table id="manager-role" >
+            </table>
+        </div>
+</div>
+<!--添加表单-->
+<form id="role-add-form" class="app-form" method="post">
+    <div class="app-form-group">
+        <span>组名:</span>
+        <input  type="text" name="name"  />
+    </div>
+    <div class="app-form-group">
+        <span>状态:</span>
+        <input  id="group-status" name="status"/>
+    </div>
+    <div class="app-form-group">
+        <span>备注:</span>
+        <input  type="text" name="remark"/>
+    </div>
+</form>
+<div id="role-dialog-tree">
+    
+</div>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/managerRole.js"></script>

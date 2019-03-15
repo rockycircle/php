@@ -1,0 +1,80 @@
+
+
+<div id="customerinfo-toolbar" style="padding:5px;height:auto">
+    <div style="margin-bottom:5px">
+        <a href="#" class="easyui-linkbutton" onclick="customerinfo_toolbar.delete()" iconCls="icon-delete-new" plain="true">删除</a>
+        <input class="easyui-searchbox searchbox-orders" name="customer_title"  data-options="prompt:'请输入名称',searcher:customerinfo_toolbar.search" >
+        <a href="#" class="easyui-linkbutton" onclick="customerinfo_toolbar.openSearchCustomerInfo()" iconCls="icon-search" plain="true">高级搜索</a>
+        <a href="#" class="easyui-linkbutton" onclick="customerinfo_toolbar.release()" iconCls="icon-delete-new" plain="true">解冻余额</a>
+    </div>
+</div>
+
+
+<table id="manager-customerinfo">
+
+</table>
+
+
+<form  id="detail-customerinfo-form"   style=" padding-top:25px;padding-left:25px;padding-right:auto;height:500px;width: 680px;"  method="post">
+    <div style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span> 客 户 ID  ：</span>
+        <input  type="text"  name="customer_id" readonly="true"/>
+    </div>
+    <div  style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span>客户名称：</span>
+        <input  type="text"  name="customer_title" readonly="true"/>
+    </div>
+    <div   style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span>微信CODE：</span>
+        <input  type="text"  name="wx_code" readonly="true"/>
+    </div>
+    <div  style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span> 信 用 分 ：</span>
+        <input  type="text"  name="customer_credit_grade" readonly="true"/>
+    </div>
+    <div  style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span> 可用余额 ：</span>
+        <input  type="text"  name="customer_balance" readonly="true"/>
+    </div>
+    <div  style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span>冻结余额：</span>
+        <input  type="text"  name="customer_no_balance" readonly="true"/>
+    </div>
+    <div  style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span> 出售单数 ：</span>
+        <input  type="text"  name="seller_orders_num" readonly="true"/>
+    </div>
+    <div  style="width:50%;height:30px;margin-bottom:15px;float: left">
+        <span>购买单数：</span>
+        <input  type="text"  name="buy_orders_num" readonly="true"/>
+    </div>
+    <div  style="width:80%;height:30px;margin-bottom:15px;">
+        <span> 头 像：</span>
+        <img  width="200px;" type="text"   name="wx_img"  id="tou" readonly="true"  />
+
+    </div>
+</form>
+<form id="search-customer-form" class="app-form" method="post">
+    <div class="app-form-group">
+        <span> 客户名称:</span>
+        <input  type="text"    name="customer_title" class="add-class-discipline"  />
+    </div>
+    <div class="app-form-group">
+        <span>微信CODE:</span>
+        <input  type="text"   name="wx_code" class="add-class-nummber"/>
+    </div>
+</form>
+
+<form id="release-form" title="解冻金额" style=" padding-top:25px;padding-left:25px;
+padding-right:auto;height: 200px;width: 550px;" method="post">
+
+    <div  style="width:60%;height:30px;margin-top: 23px;margin-left: 100px;">
+        <span>解冻金额：</span>
+        <input  type="hidden"  name="customer_id" />
+        <input  type="text"  name="customer_no_balance" />
+    </div>
+
+</form>
+
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/customerInfo.js"></script>

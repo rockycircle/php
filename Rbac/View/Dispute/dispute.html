@@ -1,0 +1,38 @@
+<div class="easyui-layout" style="width:100%;height:100%;">
+    <div data-options="region:'east',split:true" title="产品信息" style="width:40%">
+        <div id="dispute-product-toolbar" style="padding:5px;height:auto">
+            <div style="margin-bottom:5px">
+                <a href="#" class="easyui-linkbutton" onclick="dispute_toolbar.deleteProduct()" iconCls="icon-delete-new" plain="true">删除</a>
+                <a href="#" class="easyui-linkbutton" onclick="dispute_toolbar.selectQrCode()" >二维码查看</a>
+            </div>
+        </div>
+        <table id="dispute-product">
+        </table>
+    </div>
+    <div  data-options="region:'center',border:false" title="纠纷管理">
+        <div id="dispute-toolbar" style="padding:5px;height:auto">
+            <div style="margin-bottom:5px">
+                <a href="#" class="easyui-linkbutton" onclick="dispute_toolbar.deleteOrder()" iconCls="icon-delete-new" plain="true">删除</a>
+                <input class="easyui-searchbox searchbox-orders" name="orders_id" data-options="prompt:'请输入订单号',searcher:dispute_toolbar.searchOrder" >
+                <a href="#" class="easyui-linkbutton"  onclick="dispute_toolbar.openSearchOrders()">高级搜索</a>
+            </div>
+        </div>
+        <table id="manager-dispute" >
+        </table>
+    </div>
+</div>
+
+<!--搜索界面-->
+<form id="dispute-search-form" class="app-form" method="post">
+    <div class="app-form-group">
+        <span class="form-span">下单客户:</span>
+        <input  type="text"  name="customer_id" class="customer"  />
+    </div>
+    <div class="app-form-group">
+        <span class="form-span">状  态:</span>
+        <input  type="text"  name="orders_status" class="select-status"/>
+    </div>
+</form>
+
+<script type="text/javascript" src="__PUBLIC__/app/plugins/store.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/dispute.js"></script>

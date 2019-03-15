@@ -1,0 +1,106 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>我要卖</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="__PUBLIC__/asset/amaze/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.css">
+</head>
+<body>
+<div class="am-container">
+    <volist name="categories" id="category">
+        <div class="col-sm-12 box">
+            <div class="top">
+                {$category.category_title}
+            </div>
+
+            <volist name="products" id="product">
+                <if condition="$category['category_id'] eq $product['category_id']">
+                <div class="block">
+                    <small style="color:#999;">{$product.product_title}|{$product.product_from}|{$product.product_id}</small>
+                    <button onclick="window.location.href='__CONTROLLER__/release/id/{$product.product_id}'" class="am-btn am-round am-btn-sm am-fr">&nbsp我要卖&nbsp</button>
+                    <span class="am-fr">￥{$product.product_price}</span>
+                </div>
+                </if>
+            </volist>
+
+        </div>
+    </volist>
+
+
+</div>
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/asset/amaze/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+
+</body>
+<style>
+    body{
+        background-color: #f6f6f6;
+    }
+    .box{
+        background-color: white;
+        margin-top:20px;
+        border-top-left-radius:12px;
+        border-top-right-radius:12px;
+    }
+    .top{
+        padding:5px 0 10px 10px;
+        background: linear-gradient(to bottom, #000000, #b3b3b3);padding-top: 8px;
+        color: #00aac6;
+        border-top-left-radius:12px;
+        border-top-right-radius:12px;
+        font-weight: bold;
+    }
+    .block{
+        border-bottom: 1px solid #999999;
+        padding:8px 5px 10px 10px;
+    }
+    .block span{
+        color: #00aac6;
+        font-size: larger;
+    }
+    .block button{
+        color: #fff;
+        margin-left: 10px;
+        background-color: #ff3d00;
+        border:#ff3d00;
+    }
+</style>
+</html>

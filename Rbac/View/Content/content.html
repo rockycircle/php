@@ -1,0 +1,50 @@
+<!--加载富文本域插件Strart-->
+<link rel="stylesheet" href="__PUBLIC__/app/plugins/kindeditor-4.1.10/themes/default/default.css" />
+<script charset="utf-8" src="__PUBLIC__/app/plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/app/plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
+
+<!--加载富文本域插件End-->
+<div id="content-toolbar" style="padding:5px;height:auto">
+  <div style="margin-bottom:5px">
+    <a href="#" class="easyui-linkbutton" onclick="content_toolbar.add()" iconCls="icon-add-new" plain="true">添加</a>
+    <a href="#" class="easyui-linkbutton" onclick="content_toolbar.delete()" iconCls="icon-delete-new" plain="true">删除</a>
+  </div>
+
+</div>
+<table id="manager-content">
+
+</table>
+
+<!--添加表单-->
+<form id="content-add-form" method="post" style="padding:8px 5px 5px 5px;" >
+    <div style='width: 100%;margin-bottom:5px'>
+        <span style="height:25px;width:60px;line-height:30px">标　　题:</span>
+        <input  type="text"  name="content_title" style="height:25px;width:250px"  />
+        <span style="height:25px;width:60px;line-height:30px">作　　者:</span>
+        <input  type="text"  name="content_author" style="height:25px;width:250px"  />
+    </div>
+    <div style='width: 100%;margin-bottom:5px'>
+        <span style="height:25px;width:60px;line-height:30px">缩略图片:</span>
+        <input  type="text" class="content-image"  name="content-image" readonly="true" style="height:25px;width:250px"  />
+        <input type="button" id="content-image" value="选择图片">（网络图片 + 本地上传）
+    </div>
+    <div style='width: 100%;margin-bottom:5px'>
+        <span style="height:25px;width:60px;line-height:30px">类　　目:</span>
+        <input  type="text"  id="category-id" name="content_categoy_id" style="height:25px;width:250px"  />
+    </div>
+    <div style='width: 100%;margin-bottom:5px'>
+        <span style="height:25px;width:60px;line-height:30px">内　　容:</span>
+        <textarea    name="content_text" class="content_text" style="visibility:hidden;height: 300px;width:100%"></textarea>
+    </div>
+    <div style='width: 100%;margin-bottom:5px'>
+        <span style="height:25px;width:60px;line-height:30px">标　　签:</span>
+        <input  type="text"  name="content_tag" style="height:25px;width:250px"  />(','号分开，单个标签小于12字节)
+    </div>
+</form>
+
+<!--内容详细区域-->
+<div id='content-detail'>
+    
+</div>
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/managerContent.js"></script>

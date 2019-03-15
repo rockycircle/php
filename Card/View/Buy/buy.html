@@ -1,0 +1,132 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>我要买</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.min.css">
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/demo.css"/>
+</head>
+<body class="am-plugin">
+<style type="text/css">
+    .menu {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
+        color: #474747;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        background-color: #fff;
+        font-size: large;
+    }
+    .subMenu {
+        width: 33%;
+        float: left;
+        cursor: pointer;
+    }
+    .text-center {
+        text-align: center
+    }
+    .menu_name {
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+    }
+   .ka{
+       background: url("__PUBLIC__/asset/amaze/i/2.jpg");
+   }
+    .gou{
+        background: url("__PUBLIC__/asset/amaze/i/3.jpg");
+    }
+    .word{
+        font-weight:bold;
+        font-size: larger;
+        color: white;
+    }
+    .words{
+
+        color: white;
+    }
+</style>
+<!--[if lte IE 8 ]>
+<div class="am-alert am-alert">
+    不支持你使用的浏览器，<a href="http://browsehappy.com/?locale=zh" target="_blank">请升级。</a>
+</div>
+<![endif]-->
+
+<section class="amp-main">
+    <div class="am-container amp-content">
+
+        <div id="js-container">
+
+        </div>
+
+        <script type="text/x-handlebars-template" id="tpl-list">
+
+            <volist name="categorys" id="category">
+                <div class="msry-item " >
+                    <section class="am-panel am-panel-default">
+
+                       <a href="{:U('Chose/index',array('category_id' => $category['category_id']))}">
+                            <div class="am-panel-bd " style="background-image: url({$category.category_img});" >
+                                <p   class="word">{$category.category_title}</p>
+                                <nobr class="words">出售中：</nobr><nobr class="words" id="1">{$saller[$category[category_id]]}</nobr><nobr class="words">个</nobr>
+                                <nobr class="words">已成交：</nobr><nobr class="words" id="2">{$allsal[$category[category_id]]}</nobr><nobr class="words">单</nobr>
+                            </div>
+                        </a>
+                    </section>
+                </div>
+            </volist>
+
+            <div id="menu" class="menu"> <a href="__MODULE__/Buy">
+                <div id="one" class="subMenu text-center" data-src="charger.html">
+
+                    <div class="menu_name" style="color: black">
+                       我要买
+                    </div>
+                </div></a>
+                <a href="__MODULE__/Seller">
+                <div id="two" class="subMenu text-center" style="color: black">
+
+                    <div class="menu_name">
+                     我要卖
+                    </div>
+                </div></a>
+                <a href="__MODULE__/User">
+                <div id="three" class="subMenu text-center" style="color: black" >
+
+                    <div class="menu_name">
+                      我的
+                    </div>
+                </div></a>
+            </div>
+
+        </script>
+
+        <script src="__PUBLIC__/asset/amaze/js/masonry.pkgd.min.js"></script>
+        <script src="__PUBLIC__/asset/amaze/js/bundle.js"></script>
+
+
+
+
+        <nav class="amp-pager">
+        </nav>
+    </div>
+</section>
+<script src="__PUBLIC__/asset/amaze/js/app.min.js"></script>
+<script async defer id="github-bjs" src="__PUBLIC__/asset/amaze/js/buttons.js"></script>
+</body>
+
+</html>

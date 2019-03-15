@@ -1,0 +1,102 @@
+
+
+<table id="dg" class="easyui-datagrid" title="产品类目" style="max-width:100%;max-height:80%"
+       data-options="rownumbers:true,singleSelect:true,url:'{:U(read)}',method:'get',toolbar:'#tb'">
+    <thead>
+    <tr>
+        <th data-options="field:'category_id',width:80,align:'center'">ID</th>
+        <th data-options="field:'category_title',width:120">类目名称</th>
+        <th data-options="field:'category_img',width:200,align:'center'">类目图片RURL</th>
+        <th data-options="field:'category_status',width:100,align:'center'">类目状态</th>
+        <th data-options="field:'category_pid',width:100,align:'center'">出售中</th>
+        <th data-options="field:'catetory_desc',width:100,align:'center'">已成交</th>
+    </tr>
+    </thead>
+</table>
+
+
+
+<div id="tb" style="padding:2px 5px;">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-add" plain="true" onClick="addPro()">添加</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editPro()">修改</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="removePro()">删除</a>
+</div>
+
+<div id="dl" class="easyui-dialog" style="width:400px;height:380px;padding:10px 20px" closed="true" footer="ft" buttons="#dlg-buttons">
+    <div class="ftitle">Information</div>
+    <form id="am" method="post" novalidate >
+        I&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;D:<input type="text" name="category_id" class="easyui-validatebox" required="true"/></br></br>
+        类&nbsp;目&nbsp;名&nbsp;称:               <input type="text" name="category_title" class="easyui-validatebox" required="true"/></br></br>
+        类目图片URL:                                 <input type="text" name="category_img" class="easyui-validatebox" required="true"/></br></br>
+        类&nbsp;目&nbsp;状&nbsp;态:               <input type="text" name="category_status" class="easyui-validatebox" required="true"/></br></br>
+        出&nbsp;售&nbsp;中:                        <input type="text" name="category_pid" class="easyui-validatebox" required="true"/></br></br>
+        已&nbsp;成&nbsp;交:                        <input type="text" name="catetory_desc" class="easyui-validatebox" required="true"/></br></br>
+    </form>
+</div>
+
+
+<div id="dlg-buttons">
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-ok" onclick="savePro()">Save</a>
+    <a href="javascript:void(0)" class="easyui-linkbutton" iconCls="icon-cancel"
+       onclick="javascript:$('#dl').dialog('close')">Cancel</a>
+</div>
+
+
+<script type="text/javascript">
+    var url;
+    function addPro(){
+        $('#dl').dialog('open').dialog('setTitle','New Information');
+        $('#am').form('clear');
+        url = '__URL__/insert';
+    }
+    function editPro(){
+        var row = $("#dg").datagrid("getSelected");//取得选中行
+        if(row){
+            $("#dl").dialog("open").dialog("setTitle","Change Information");
+            $("#am").form("load",row);
+            url = '__URL__/update?ID='+row.ID;//为update方法准备访问url，注意是全局变量
+        }
+    }
+
+    function savePro(){
+        $('#am').form('submit',{
+            url: url,
+            onSubmit: function(){
+                return $(this).form('validate');
+            },
+            success: function(result){
+                var result = eval('('+result+')');
+                if (result.success){
+                    $('#dl').dialog('close');        // close the dialog
+                    $('#dg').datagrid('reload');    // reload the user data
+                } else {
+                    $.messager.show({
+                        title: 'Error',
+                        msg: result.msg
+                    });
+                }
+            }
+        });
+    }
+
+    function removePro()
+    {
+        var row = $('#dg').datagrid('getSelected');
+        if (row){
+            $.messager.confirm('Confirm','Are you sure you want to remove this row?',function(r){
+                if (r){
+                    $.post('__URL__/delete',{ID:row.ID},function(result){
+                        if (result.success){
+                            $('#dg').datagrid('reload');    // reload the user data
+                        } else {
+                            $.messager.show({    // show error message
+                                title: 'Error',
+                                msg: result.msg
+                            });
+                        }
+                    },'json');
+                }
+            });
+        }
+    }
+</script>

@@ -1,0 +1,33 @@
+<!--加载富文本域插件Strart-->
+<link rel="stylesheet" href="__PUBLIC__/app/plugins/kindeditor-4.1.10/themes/default/default.css" />
+<script charset="utf-8" src="__PUBLIC__/app/plugins/kindeditor-4.1.10/kindeditor-min.js"></script>
+<script charset="utf-8" src="__PUBLIC__/app/plugins/kindeditor-4.1.10/lang/zh_CN.js"></script>
+<div id="productcatg-toolbar" style="padding:5px;height:auto">
+    <div style="margin-bottom:5px">
+        <a href="#" class="easyui-linkbutton" onclick="productcatg_toolbar.add()" iconCls="icon-add-new" plain="true">添加</a>
+        <a href="#" class="easyui-linkbutton" onclick="productcatg_toolbar.delete()" iconCls="icon-delete-new" plain="true">删除</a>
+    </div>
+</div>
+
+
+<table id="manager-productcatg">
+
+</table>
+
+
+
+<!--添加界面-->
+<form id="add-productcatg-form"  style=" padding-top:25px;padding-left:25px;padding-right:auto;width: 720px;"   method="post">
+    <div style="width:80%;height:30px;margin-bottom:15px;">
+        <span>类目名称：</span>
+        <input  type="text"  name="category_title" />
+    </div>
+    <div class="app-form-group">
+        <span>封面图片：</span>
+        <input  type="text"   name="category_img" class="category-img" readonly="true"/>&nbsp;<input type="button" id="category-img" value="上传图片"/>（建议600*200像素）
+    </div>
+    <div class="app-form-group" style="margin-top: 30px;">
+        <span style="vertical-align: top">温馨提示：</span> <textarea    name="category_desc"  style="width:360px;height: 100px;"></textarea>
+    </div>
+</form>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/productCatg.js"></script>

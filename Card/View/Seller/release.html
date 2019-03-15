@@ -1,0 +1,161 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1">
+    <title>发布产品</title>
+
+    <!-- Set render engine for 360 browser -->
+    <meta name="renderer" content="webkit">
+
+    <!-- No Baidu Siteapp-->
+    <meta http-equiv="Cache-Control" content="no-siteapp"/>
+
+    <link rel="icon" type="image/png" href="__PUBLIC__/asset/amaze/i/favicon.png">
+
+    <!-- Add to homescreen for Chrome on Android -->
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" sizes="192x192" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Add to homescreen for Safari on iOS -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="apple-mobile-web-app-title" content="Amaze UI"/>
+    <link rel="apple-touch-icon-precomposed" href="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+
+    <!-- Tile icon for Win8 (144x144 + tile color) -->
+    <meta name="msapplication-TileImage" content="__PUBLIC__/asset/amaze/i/app-icon72x72@2x.png">
+    <meta name="msapplication-TileColor" content="#0e90d2">
+
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.css">
+</head>
+<body>
+    <p style="color: #e49715;">温馨提示</p>
+    {$category.category_desc}
+    <form action="__CONTROLLER__/save" class="am-form" method="post">
+    <div class="am-container">
+        <input type="hidden" name="customer_id" value="{$customer_id}" />
+        <input type="hidden" name="category_id" value="{$product.category_id}" />
+        <input type="hidden" name="product_id" value="{$product.product_id}" />
+        <input type="hidden" name="product_title" value="{$product.product_title}" />
+        <input type="hidden" name="product_use_address" value="{$product.product_use_address}" />
+        <input type="hidden" name="product_origin_price" value="{$product.product_origin_price}" />
+        <input type="hidden" name="product_price" value="{$product.product_price}" />
+        <input type="hidden" name="product_info" value="{$product.product_info}" />
+        <input type="hidden" name="product_merchant" value="{$product.product_merchant}" />
+        <input type="hidden" name="product_help" value="{$product.product_help}" />
+        <input type="hidden" name="product_from" value="{$product.product_from}" />
+        <div class="block">
+            <span>商品类别:</span>
+            <span class="am-fr goods">{$category.category_title}</span>
+        </div>
+
+        <div class="block">
+            <span>商品来源:</span>
+            <span class="am-fr goods" name="product_from">{$product.product_from}</span>
+        </div>
+        <div class="block">
+            <span>商品名称:</span>
+            <span class="am-fr goods">{$product.product_title}</span>
+        </div>
+        <a href="">
+            <div class="block">
+                <span style="color: #000;">上传二维码:</span>
+                <span class="am-icon-question am-circle centered am-fr"></span>
+                <span class="am-icon-shekel am-fr" style="color: #000;"></span>
+            </div>
+        </a>
+
+        <div class="am-u-sm-3" style="padding: 0;">
+            <div style="background-color: white;margin-top: 10px;font-size: 16px;
+        padding:7px 10px 7px 10px;">兑换码:</div>
+        </div>
+        <div class="am-u-sm-8" style="padding-left: 0;padding-right: 0;margin-top:10px;">
+
+                <input name="product_code" class="am-form-field am-input-lg" type="text" placeholder="请输入兑换码" dir="rtl" style="border: 0;padding-right: 12px;">
+
+        </div>
+        <div class="am-u-sm-1" style="background-color: white;margin-top: 10px;">
+            <span class="am-icon-question am-circle centered am-fr" style="margin:6px 0 8px 8px;"></span>
+        </div>
+
+    </div>
+    <div class="am-container">
+
+            <!--<span>有效期(含当天):</span>-->
+            <!--<input type="text" class="am-form-field" placeholder="日历组件" data-am-datepicker readonly required />-->
+        <div class="am-container" style="margin-top: 20px;background-color: white">
+            <div class="am-u-sm-6" style="padding:10px 0 10px 0;">
+                <span>有效期(含今日):</span>
+            </div>
+            <div class="am-u-sm-6" style="padding-top: 5px;">
+                <span><input name="product_expire_date" style="background-color: white;border: white;" type="text" class="am-form-field" placeholder="点击输入日期" data-am-datepicker="{theme: 'warning'}" dir="rtl" readonly/></span>
+            </div>
+        </div>
+
+        <div class="block">
+            <span>售价:</span>
+            <span class="am-icon-question am-circle centered am-fr"></span>
+            <span class="am-fr goods">{$product.product_price}</span>
+        </div>
+        <div class="info">
+            <p style="padding-top: 10px;">卖家备注信息:</p>
+                <div class="am-form-group" style="margin-bottom:0px;">
+                    <textarea name="product_desc" class="" rows="4" id="doc-ta-1"></textarea>
+                </div>
+            <div class="am-u-sm-12" style="background-color: white;margin: 0;">
+                <p class="am-fr" style="color: #a2a2a2;margin: 0;">最多100个字</p>
+            </div>
+        </div>
+
+    </div>
+        <button type="submit" class="am-btn am-center" style="background-color: #f37b1d;width: 90%;margin-top: 10px;color: #fff;">发布</button>
+    </form>
+
+
+
+
+<!--在这里编写你的代码-->
+
+<!--[if (gte IE 9)|!(IE)]><!-->
+<script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+<!--<![endif]-->
+<!--[if lte IE 8 ]>
+<script src="http://libs.baidu.com/jquery/1.11.3/jquery.min.js"></script>
+<script src="http://cdn.staticfile.org/modernizr/2.8.3/modernizr.js"></script>
+<script src="__PUBLIC__/asset/amaze/js/amazeui.ie8polyfill.min.js"></script>
+<![endif]-->
+<script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+</body>
+<style>
+    body{
+        background-color: #f6f6f6;
+    }
+    p {
+        font-size: 14px;
+        margin: 5px 0 5px 10px;
+    }
+    .block{
+        background-color: white;
+        margin-top:10px;
+        font-size: 16px;
+        padding:10px 10px 10px 10px;
+
+    }
+    .goods{
+        color: #ff6800;
+    }
+    .am-icon-question{
+        padding-left: 8px;width: 25.6px;color: #fff;background-color: #3bb4f2;
+    }
+    .info{
+        background-color: white;
+        margin-top: 10px;
+    }
+</style>
+</html>

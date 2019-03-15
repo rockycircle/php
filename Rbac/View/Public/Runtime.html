@@ -1,0 +1,54 @@
+
+    //应用数据
+    var app_data = {
+         info: {
+            productcategory:function(p,cfg){
+                var p = arguments[0] || 'LIST';
+                var productcategory = {$productcategory};
+                if (p === 'STORE') {
+                    var rows = Array();
+                    for (var i = 0; i < productcategory.length; i++) {
+                        var row = Array();
+                        row[0] = productcategory[i].category_id;
+                        row[1] = productcategory[i].category_title;
+                        rows.push(row);
+                    }
+                    return rows;
+                } else if (p === 'LIST') {
+                    return productcategory;
+                } 
+            },
+             customer:function(p,cfg){
+                 var p = arguments[0] || 'LIST';
+                 var customer = {$customer};
+                 if (p === 'STORE') {
+                     var rows = Array();
+                     for (var i = 0; i < customer.length; i++) {
+                         var row = Array();
+                         row[0] = customer[i].customer_id;
+                         row[1] = customer[i].customer_title;
+                         rows.push(row);
+                     }
+                     return rows;
+                 } else if (p === 'LIST') {
+                     return customer;
+                 }
+             },
+             product:function(p,cfg){
+                 var p = arguments[0] || 'LIST';
+                 var products = {$products};
+                 if (p === 'STORE') {
+                     var rows = Array();
+                     for (var i = 0; i < products.length; i++) {
+                         var row = Array();
+                         row[0] = products[i].product_id;
+                         row[1] = products[i].product_title;
+                         rows.push(row);
+                     }
+                     return rows;
+                 } else if (p === 'LIST') {
+                     return products;
+                 }
+             },
+        }
+    };

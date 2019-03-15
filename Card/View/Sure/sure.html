@@ -1,0 +1,182 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="description" content="">
+        <meta name="keywords" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+        <title>订单确认</title>
+        <meta name="renderer" content="webkit">
+        <meta http-equiv="Cache-Control" content="no-siteapp"/>
+        <link rel="icon" type="image/png" href="__PUBLIC__/asset/amaze/i/favicon.png">
+        <!-- Add to homescreen for Chrome on Android -->
+        <meta name="mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+        <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.css">
+        <script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+        <script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+        <style type="text/css">
+            .menu {
+                display: block;
+                position: fixed;
+                bottom: 0;
+                width: 100%;
+                height: 10%;
+                color: #474747;
+                padding-top: 10px;
+                border-top: 1px solid #eee;
+                background-color: #fff;
+            }
+            .subMenu {
+                width: 50%;
+                float: left;
+                cursor: pointer;
+            }
+            .text-center {
+                text-align: left;
+            }
+            .menu_all {
+                height: 30px;
+                width: 100%;
+                line-height: 30px;
+            }
+            .word{
+
+                font-size: large;
+                color: black;
+            }
+            .words{
+                font-size: small;
+                color: black;
+            }
+        </style>
+    </head>
+    <body >
+        <div class="am-container" style="background: rgba(253, 255, 69, 0.9);text-align:center;" >
+            <nobr style="font-size: smaller;">剩余支付时间： </nobr>
+            <span id="t_">00：</span>
+            <span id="t_e"></span>
+            <span id="t_d"></span>
+        </div>
+
+        <div class="am-container">
+            <nobr class="words"> 订单编号：</nobr><nobr class="words">{$products.orders_id}</nobr></br>
+            <nobr class="words"> 下单时间：</nobr><nobr class="words">{$products.orders_create}</nobr>
+        </div>
+        <div class="am-container" style="background: rgba(16, 20, 11, 0.11); padding-top: 2%; padding-bottom: 2%;" >
+            <nobr class="word" >商品信息</nobr>
+        </div>
+
+        <div class="am-container">
+            <nobr  class="words"> 商品信息：</nobr><nobr class="words">{$products.product_title}</nobr></br>
+            <nobr class="words"> 数量：</nobr><nobr class="words">{$products.product_num}</nobr></br>
+            <nobr class="words"> 单价：</nobr><nobr class="words">{$products.product_price}</nobr></br>
+            <nobr class="words"> 总价：</nobr><nobr class="words">{$products.product_sum_price}</nobr>
+        </div>
+
+        <div class="am-container"style="background: rgba(16, 20, 11, 0.11);  padding-top: 2%; padding-bottom: 2%;" >
+            <nobr class="word">商品详情</nobr>
+        </div>
+        <div class="am-container">
+            <div class="words">{$products.product_info}</div>
+        </div>
+        <div class="am-container" style="background: rgba(16, 20, 11, 0.11); padding-top: 2%; padding-bottom: 2%; ">
+            <nobr class="word">使用说明 </nobr>
+        </div>
+        <div class="am-container">
+
+            <section data-am-widget="accordion" class="am-accordion am-accordion-basic" data-am-accordion='{  }'>
+
+                <dl class="am-accordion-item">
+                    <nobr class="words">如果您第一次购买，请务必阅读</nobr>
+                    <nobr class="am-accordion-title" style="color: #20b9ff">
+                        使用细则
+                    </nobr>
+                    <dd class="am-accordion-bd am-collapse ">
+                        <!-- 规避 Collapase 处理有 padding 的折叠内容计算计算有误问题， 加一个容器 -->
+                        <div class="am-accordion-content">
+                            {$products.product_help}
+                        </div>
+                    </dd>
+                </dl>
+            </section>
+
+        </div>
+        <div class="am-container" style="background: rgba(16, 20, 11, 0.11);  padding-top: 2%; padding-bottom: 2%;">
+            <nobr class="word" >适用门店</nobr>
+        </div>
+        <div class="am-container">
+            <nobr class="words">{$products[0][product_use_address]}</nobr>
+        </div>
+
+        <div class="am-container" style="background: rgba(16, 20, 11, 0.11);  padding-top: 2%; padding-bottom: 2%;">
+            <nobr class="word">支付方式</nobr>
+        </div>
+        <div class="am-g" style="margin-bottom:15%; ">
+            <div class="am-u-sm-10">
+                <span class="am-icon-weixin"></span>
+                <nobr class="words"> 微信</nobr></div>
+            <div class="am-u-sm-2"> <label class="am-checkbox"><input type="checkbox" value="" data-am-ucheck></label></div>
+        </div>
+
+
+
+        <div id="menu" class="menu">
+            <div id="one" class="am-u-sm-5" data-src="charger.html">
+
+                <div class="menu_all">
+                    <nobr>合计：</nobr><nobr style="color: orange">￥{$products.product_sum_price}</nobr>
+                </div>
+            </div>
+            <div id="two" class="am-u-sm-7">
+
+                <div class="subMenu">
+                    <nobr >取消订单</nobr>
+                </div>
+                <div class="subMenu">
+                    <button type="button" class="am-btn am-btn-default am-round" style="background: orange">去支付</button>
+                </div>
+            </div>
+
+        </div>
+        <!--在这里编写你的代码-->
+        <!--[if (gte IE 9)|!(IE)]><!-->
+
+        <script language="javascript" type="text/javascript">
+            var t;
+            var d = 59;
+            var e = 599;
+            
+            function timedCount()
+            {
+
+                t = setTimeout("timedCount()", 1000);
+
+                if (d < 10) {
+                    document.getElementById("t_d").innerHTML = "0" + d;
+                } else {
+                    document.getElementById("t_d").innerHTML = d;
+                }
+                document.getElementById("t_e").innerHTML = "0" + parseInt(e / 60) + ":";
+                d = d - 1;
+                if (d == 0)
+                {
+                    d = 59
+                }
+                e = e - 1;
+                if (e == 0) {
+                    clearTimeout(t);
+                }
+            }
+            timedCount();
+            //设置url参数
+            var is_hasorder = {$is_hasorder};
+            if(is_hasorder == '2'){
+                window.history.pushState({},0,window.location.href+"&oid="+{$products.orders_id});      
+            }
+            
+        </script>
+
+    </body>
+</html>

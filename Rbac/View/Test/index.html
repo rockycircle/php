@@ -1,0 +1,74 @@
+<table id="dg" title="My Users" class="easyui-datagrid"
+
+       toolbar="#toolbar"
+       rownumbers="true" fitColumns="true" singleSelect="true">
+    <thead>
+    <tr>
+        <th field="product_title" width="100">产品名称</th>
+        <th field="product_origin_price" width="100">市场价</th>
+        <th field="product_price" width="100">售价</th>
+        <th field="product_from" width="100">商品来源</th>
+        <th field="category_id" width="100">类目</th>
+        <th field="product_status" width="100">状态</th>
+        <th field="product_use_address" width="100">适用门店</th>
+        <th field="product_merchant" width="100">银行</th>
+
+    </tr>
+    </thead>
+</table>
+<div id="dl" class="easyui-dialog" style="width:650px;height:450px;padding:10px 20px" closed="true" footer="ft" buttons="#dlg-buttons">
+    <div class="ftitle">Information</div>
+    <form id="am" method="post">
+        <table>
+            <tr>
+                <td>产品名称：</td>
+                <td><input name="product_title" type="text" required="true"></td>
+
+                <td>类目:</td>
+                <td><input class="node-category" name="category_id" style="width:156px;"/></td>
+            </tr>
+            <tr>
+                <td>市场价:</td>
+                <td><input name="product_origin_price" type="text" required="true"></td>
+
+                <td>售价:</td>
+                <td><input name="product_price" type="text"></td>
+            </tr>
+            <tr>
+                <td>商品来源:</td>
+                <td><input name="product_from" type="text"></td>
+                <td>状态:</td>
+                <td><input class="node-status" name="product_status" style="width:156px;"/></td>
+            </tr>
+
+            <tr>
+                <td>商品详细</td>
+                <td><textarea name="product_info" type="text" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td>使用说明</td>
+                <td><textarea name="product_help" type="text" rows="4" cols="50"></textarea></td>
+            </tr>
+            <tr>
+                <td>适用门店</td>
+                <td><input name="product_use_address" type="text"></td>
+
+                <td>批发商</td>
+                <td><input name="product_merchant" type="text"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td><input type="submit" onclick="savePro()" value="Submit" id="save-node-form"></td>
+            </tr>
+        </table>
+    </form>
+</div>
+
+<div id="toolbar">
+    <a href="#" class="easyui-linkbutton" iconCls="icon-add" plain="true" onclick="newPro()">添加</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-edit" plain="true" onclick="editPro()">修改</a>
+    <a href="#" class="easyui-linkbutton" iconCls="icon-remove" plain="true" onclick="destroyPro()">删除</a>
+</div>
+
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/test.js"></script>
+<!--<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/test2.js"></script>-->

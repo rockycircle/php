@@ -1,0 +1,70 @@
+<div id="product-toolbar" style="padding:5px;height:auto">
+    <div style="margin-bottom:5px">
+        <a href="#" class="easyui-linkbutton" onclick="product_toolbar.addProduct()" iconCls="icon-add-new" plain="true">添加</a>
+        <a href="#" class="easyui-linkbutton" onclick="product_toolbar.deleteProduct()" iconCls="icon-delete-new" plain="true">删除</a>
+    </div>
+
+</div>
+<table id="manager-product">
+
+</table>
+
+<form id="add-product-form" class="product-app-form" method="post" style="width: 700px;padding:8px 5px 5px 5px;">
+    <div class="content">
+        <span>产品名称:</span>
+        <input  type="text"  name="product_title" class="column" />
+        <span>类　　目:</span>
+        <input  type="text"  name="category_id" class="column productcategory" />
+    </div>
+    <div class="content">
+        <span>　市场价:</span>
+        <input  type="text"  name="product_origin_price" class="column"  />
+        <span>售　　价:</span>
+        <input  type="text"  name="product_price"  class="column"  />
+    </div>
+    <div class="content">
+        <span>商品来源:</span>
+        <input  type="text"  name="product_from"  class="column" />
+        <span>状　　态:</span>
+        <input  type="text"  name="product_status"  class="column status" />
+    </div>
+    <div class="content">
+        <span>适用门店:</span>
+        <input  type="text"  name="product_use_address" class="column" />
+        <span>商　　户:</span>
+        <input  type="text"  name="product_merchant"  class="column" />
+    </div>
+    
+    <div class="content">
+        <span>商品详细:</span>
+        <textarea    name="product_info"  class="textarea" style=""></textarea>
+    </div>
+    <div class="content">
+        <span>使用说明:</span>
+        <textarea    name="product_help"  class="textarea" style=""></textarea>
+    </div>
+   
+</form>
+
+<style>
+    .product-app-form .content{
+        width: 100%;
+        margin-bottom:10px;
+    }
+    .product-app-form .content span{
+        height:25px;
+        width:60px;
+        line-height:30px;
+    }
+    .product-app-form .content .column{
+        height:25px;
+        width:250px;
+    }
+    .product-app-form .content .textarea{
+        height:80px;
+        width:84%;
+    }
+</style>
+
+<script type="text/javascript" src="__PUBLIC__/app/plugins/store.js"></script>
+<script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/product.js"></script>

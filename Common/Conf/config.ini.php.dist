@@ -1,0 +1,19 @@
+<?php
+return array(
+           'DB_TYPE'                   =>  'mysql',
+           'DB_HOST'                   =>  'localhost',
+           'DB_NAME'                   =>  'purchase_sandbox',
+           'DB_USER'                   =>  'root',
+           'DB_PWD'                    =>  '',
+           'DB_PORT'                   =>  '3306',
+           'DB_PREFIX'                 =>  '',
+           'SHOW_PAGE_TRACE'           =>  0,//显示调试信息\
+           'AUTOLOAD_NAMESPACE' => array(
+               'Fn'     => COMMON_PATH.'Public/Fn/',
+           ),
+           'APP_UPLOAD_IMG_PATH'=>PUB_PATH.'UploadFile/Img/',
+           'QINIU_AKEY'=>'d00h3uwkG3MUzzmup54fAMXD0QGWxGvZY6k1G2Kt',   //七牛账号Accesskey
+           'QINIU_SKEY'=>'722IuWCDPYHzGfgMc2C7Yfz_JLGXgT6gg8GuHQbT',   //七牛账号SecreKey
+           'QINIU_MY_URL'=>'http://image.zxtms.net/',
+           'APP_URL'=>"http://127.0.0.1/purchase/"
+    );

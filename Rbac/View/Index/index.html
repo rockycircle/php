@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<head>
+    <title>登录</title>
+    <meta charset="utf-8">
+    <!--引入css文件-->
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/easy/themes/bootstrap/easyui.css">
+    <link rel="stylesheet" type="text/css" href="__PUBLIC__/easy/themes/icon.css">
+</head>
+<body>
+    <div id="login" title="登录" style="width:400px;padding:30px 60px">
+        <div style="margin-bottom:20px">
+            <div>账号:</div>
+            <input type="text" class="textbox" style="width:100%;height:32px" >
+        </div>
+        <div style="margin-bottom:20px">
+            <div>密码:</div>
+            <input type="password" class="password" style="width:100%;height:32px">
+        </div>
+
+        <div>
+            <a href="#"  id="login-button" class="easyui-linkbutton" iconCls="icon-ok" style="width:100%;height:32px">登录</a>
+        </div>
+    </div>
+    <!--引入js文件-->
+    <script type="text/javascript">
+        var Think = {
+            "APP": '__APP__',
+            "URL": '__URL__',
+            "ROOT": '__ROOT__',
+            "PUBLIC": '__PUBLIC__'
+        };
+    </script>
+    <script type="text/javascript" src="__PUBLIC__/easy/jquery.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/easy/jquery.easyui.min.js"></script>
+    <script type="text/javascript" src="__PUBLIC__/easy/locale/easyui-lang-zh_CN.js"></script>
+    <script type="text/javascript" charset="utf-8" src="__PUBLIC__/app/login.js"></script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!doctype html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title>{$categoryInfo['category_title']}</title>
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/amazeui.min.css">
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/app.css">
+    <!--[if (gte IE 9)|!(IE)]><!-->
+    <script src="__PUBLIC__/asset/amaze/js/jquery.min.js"></script>
+    <script src="__PUBLIC__/asset/amaze/js/amazeui.min.js"></script>
+    <!--<![endif]-->
+    <link rel="stylesheet" href="__PUBLIC__/asset/amaze/css/demo.css"/>
+</head>
+<body class="am-plugin">
+<style type="text/css">
+    .menu {
+        display: block;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+        height: 10%;
+        color: #474747;
+        padding-top: 10px;
+        border-top: 1px solid #eee;
+        background-color: #fff;
+        font-size: large;
+    }
+    .subMenu {
+        width: 33%;
+        float: left;
+        cursor: pointer;
+    }
+    .text-center {
+        text-align: center
+    }
+    .menu_name {
+        height: 30px;
+        width: 100%;
+        line-height: 30px;
+    }
+
+    .word{
+        font-weight:bold;
+        font-size: large;
+        color: white;
+    }
+    .worda{
+          font-weight:bold;
+          font-size: large;
+          color: black;
+      }
+    .words{
+     font-size: smaller;
+        color: white;
+    }
+    .wordsa{
+        font-size: smaller;
+        color: black;
+    }
+
+    a,img{border:0;text-decoration:none;}
+    body{font:12px/180% Arial, Helvetica, sans-serif, "新宋体";}
+    /* p_number */
+    .p_number{border:solid 1px #ddd;padding:10px 0 0 10px;width:480px;height:80px;margin:40px auto;}
+    .p_number .f_l{float:left;}
+    .p_number .add_chose{width:105px;}
+    .p_number .add_chose a{float:left;margin:5px 0 0 0;display:block;width:15px;height:15px;line-height:99em;overflow:hidden;background:url(images/reduce-add.gif) no-repeat;}
+    .p_number .add_chose a.reduce{background-position:0 0;}
+    .p_number .add_chose a.reduce:hover{background-position:0 -16px;}
+    .p_number .add_chose a.add{background-position:-16px 0;}
+    .p_number .add_chose a.add:hover{background-position: -16px;}
+    .p_number .add_chose .text{float:left;margin:0 5px;display:inline;border:solid 1px #ccc;padding:4px 3px 4px 8px;width:40px;line-height:18px;font-size:14px;color:#990000;font-weight:800;}
+    .p_number .buy{line-height:2em;}
+    .p_number .buy .total-font{font-family:Arial;font-size:26px;}
+    .p_number .buy .jifen{margin-left:20px;color:#ACACAC;}
+    .p_number .buy .jifen b{margin:0 3px;}
+</style>
+<!--[if lte IE 8 ]>
+<div class="am-alert am-alert">
+    不支持你使用的浏览器，<a href="http://browsehappy.com/?locale=zh" target="_blank">请升级。</a>
+</div>
+<![endif]-->
+
+<section class="amp-main">
+    <div  class="am-panel-bd " style="margin-left:2%;margin-right: 2%;margin-top:2%;height: auto; " >
+        <div class="am-panel-bd " style="margin-top: -5%;background-image: url({$categoryInfo.category_img}) " >
+            <p class="word">{$categoryInfo.category_title}</p>
+            <nobr class="words">出售中：</nobr><nobr class="words" id="1">{$categoryInfo.product_count}</nobr><nobr class="words">个</nobr>
+            <nobr class="words">已成交：</nobr><nobr class="words" id="2">{$categoryInfo.orders_count}</nobr><nobr class="words">单</nobr>
+        </div>
+        <nobr class="wordsa" style="color: #ffbe40">温馨提示：</nobr></br>
+        <nobr class="wordsa">1.请于购买后一小时内使用；</nobr></br>
+        <nobr class="wordsa">2.如是第一次购买，请务必阅读商品使用说明；</nobr></br>
+        <nobr class="wordsa">3.请诚信交易，平台有权拒绝服务作弊用户；</nobr></br>
+    </div>
+    <div class="am-container amp-content">
+        <div id="js-container">
+        </div>
+        <script type="text/x-handlebars-template" id="tpl-list">
+            <volist name="productList" id="product">
+            <div class="msry-item ">
+                <section class="am-panel am-panel-default" style="background: gainsboro">
+                    <div class="am-panel-bd ">
+                        <nobr class="worda">{$product.product_title}</nobr>&nbsp;&nbsp;&nbsp;
+                        <nobr class="worda" style="color: darkorange">￥{$product.product_price}</nobr>
+                        <br class="wordsa">{$product.product_from}</br><s class="wordsa" >市场价:￥{$product.product_origin_price}</s>
+                        <nobr class="wordsa">出售中：</nobr><nobr class="wordsa" id="1">{$product.product_count}</nobr><nobr class="wordsa">个</nobr>
+                        <nobr class="wordsa">已成交：</nobr><nobr class="wordsa" id="2">{$product.orders_count}</nobr><nobr class="wordsa">单</nobr>
+                        <button type="button" class="am-btn am-btn-default am-round" style="background: orange;font-size: smaller"data-am-modal="{target: '#doc-modal-1', closeViaDimmer: 0, width: 300, height: 225}">购买</button>
+                    </div>
+                </section>
+            </div>
+            </volist>
+        </script>
+        
+          <div class="am-modal am-modal-no-btn" tabindex="-1" id="doc-modal-1">
+                            <div class="am-modal-dialog" >
+                                <div class="am-modal-hd">
+                                    <nobr>购买数量：</nobr>
+                                    <div class="f_l add_chose">
+                                        <form   name="sures" id="sure" method="post"  >
+                                            <span onClick ="numjian()" class="num-jian" style='cursor:pointer'>-</span>
+                                        <input type="text" class="input-num" name="ninput-num" id="input-num" value="1" style="text-align:center;"/>
+                                            <span onClick ="numjia()" class="num-jia" style='cursor:pointer'>+</span>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="am-modal-bd" style="text-align:left;">
+                                    <nobr class="wordsa" style="color: #ffbe40">温馨提示：</nobr></br>
+                                    <nobr class="wordsa">1.请于购买后一小时内使用；</nobr></br>
+                                    <nobr class="wordsa">2.如是第一次购买，请务必阅读商品使用说明；</nobr></br>
+                                    <nobr class="wordsa">3.请诚信交易，平台有权拒绝服务作弊用户；</nobr></br>
+                                </div>
+                                <button onclick="add()" type="button" id="doc-prompt-toggle" class="am-btn am-btn-default am-round" style="background: orange;font-size: smaller">确认</button>
+                            </div>
+                        </div>
+        
+        <script src="__PUBLIC__/asset/amaze/js/masonry.pkgd.min.js"></script>
+        <script src="__PUBLIC__/asset/amaze/js/bundle.js"></script>
+        <nav class="amp-pager">
+        </nav>
+    </div>
+
+</section>
+
+<script type="text/javascript">
+    
+    function numjia(){
+        $onum = $("#input-num").val();
+        $onum++;
+        $("#input-num").val($onum);
+    }
+    
+    function numjian(){
+        $onum = $("#input-num").val();
+        $onum--;
+        if($onum<=0){
+            alert("数量不能为0");
+            return;
+        }else{
+            $("#input-num").val($onum);
+        }
+    }
+    function add(){
+        var intp =document.getElementById("input-num");
+        var ipt=intp.value;
+
+
+        window.location.href = "{:U('Sure/index',array('product_id' => $product['product_id']))}?ipt="+ipt;
+
+        location.href = "{:U('Sure/index',array('product_id' => $product['product_id']))}?ipt="+ipt;
+
+
+        window.location.href = "{:U('Sure/index',array('product_id' => $product['product_id']))}&num="+ipt;
+
+        }
+</script>
+</body>
+</html>
